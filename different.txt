@@ -1,0 +1,238 @@
+ //                   if(j == 4){
+
+        //    //            QPushButton *pbAct = new QPushButton;
+        //                  pbAct->setDefault(true);
+        //                  pbAct->setDisabled(true);
+        //                  pbAct->setText("Активировать");
+        //        //          connect(pbAct,SIGNAL(clicked()),SLOT(addConnect(int *j)));
+        //                  ui->tableWidget->setCellWidget(i,j,pbAct );
+        //            }
+        //            if(j==5){
+
+        ////                QPushButton *pbConnect = new QPushButton;
+        //                pbConnect->setDefault(true);
+        ////                pb->setDisabled(true);
+        //                pbConnect->setText("Подключиться");
+        //                connect(pbConnect,SIGNAL(clicked()),SLOT(addConnect()));
+        //                ui->tableWidget->setCellWidget(i,j,pbConnect );
+
+        //            }
+//                    count++;
+//                }
+
+
+       connect(ui->tableWidget,SIGNAL(cellClicked(int,int)),SLOT(addConnect(int, int)));
+       connect(pbConnect, SIGNAL(clicked()),this,SLOT(addConnect2()));
+       connect(pbConnect,SIGNAL(clicked()),SLOT(addConnect()));
+
+//последнее
+                    if(j == 4){
+
+                        QPushButton *pbAct = new QPushButton(this);
+                        pbAct->setDefault(true);
+                        pbAct->setDisabled(true);
+                        pbAct->setText("Активировать");
+ //                       connect(pbAct,SIGNAL(clicked()),SLOT(addConnect()));
+                        ui->tableWidget->setCellWidget(i,j,pbAct );
+                    }
+                    if(j==5){
+
+
+                        QPushButton *pbConnect = new QPushButton(this);
+                        pbConnect->setDefault(true);
+                        pbConnect->setText("Подключиться");
+
+                        connect(pbConnect, SIGNAL(clicked()), &ButtonSignalMapper, SLOT(map()));
+                        ButtonSignalMapper.setMapping(pbConnect,DI);
+                        connect(&ButtonSignalMapper, SIGNAL(mapped(int)), this, SLOT(CellButtonClicked(int)));
+
+                        ui->tableWidget->setCellWidget(i,j,pbConnect );
+                    }
+
+Флаги ячейки
+ui->tableWidget->item(i,j)->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsSelectable);
+ui->tableWidget->setColumnWidth(0,150);
+ui->tableWidget->setColumnWidth(1,150);
+ui->tableWidget->setColumnWidth(2,150);
+ui->tableWidget->setColumnWidth(3,150);
+
+
+//    ui->statusBar->showMessage("Устройства найдены!");
+//    int i,k;
+//    QString arr[5] = "";
+
+//    if(!ui->tableWidget->rowCount())
+//    {
+//        ui->tableWidget->setRowCount(1);
+//        connect(ui->tableWidget,SIGNAL(cellClicked(int,int)),SLOT(addConnect(int, int)));
+//    }
+//    else
+//    {
+//        ui->tableWidget->insertRow(1);
+
+//    }
+//        k = ui->tableWidget->rowCount();
+//        int ct = 1;
+//        for(i = 0; i < k; i++)
+//        {
+//            ui->tableWidget->setRowHeight(i,20);
+
+//            arr[0]=devStruct[ct].ipAddres;
+//            arr[1]=devStruct[ct].nameDevice;
+//            arr[2]=devStruct[ct].macAddres;
+//            arr[3]= "Найдено";
+//            arr[4]= "Активация";
+//            arr[5]= "Подключить";
+
+//            for(int j=0; j<ui->tableWidget->columnCount();j++)
+//               {
+//                    QTableWidgetItem *itm = new QTableWidgetItem(tr("%1").arg(arr[j]));
+//                    ui->tableWidget->setItem(i,j,itm);
+//                    itm->tableWidget()->setColumnWidth(j,120);
+//                    itm->setTextAlignment(Qt::AlignCenter);
+////                    itm->setBackgroundColor(Qt::yellow);
+//                    if(j==4){
+
+//                    }
+//                    if(j!=5)
+//                    {
+//                        ui->tableWidget->item(i,j)->setFlags(Qt::ItemIsEnabled|Qt::ItemIsUserCheckable);
+//                        ui->tableWidget->setRowHidden(i,true);
+//                    }
+//            }
+//        ct++;
+//        }
+    }
+    //       boomTcpSocket->write(cmd1.data(),cmd1.size());
+    //       boomTcpSocket->write(cmd2.data(),cmd2.size());
+    //         qDebug()<<"Да";
+        }
+    //    else if((ui->tableWidget->item(a,3)->text() == "Подключение")&&(b == 5)){
+    //       ui->tableWidget->item(a,3)->setText("Отключение");
+    //       ui->tableWidget->item(a,5)->setText("Подключить");
+    //        // qDebug()<<"Да";
+    //    }
+    //    else if((ui->tableWidget->item(a,3)->text() == "Отключение")&&(b == 5)){
+    //        ui->tableWidget->item(a,3)->setText("Подключение");
+    //        ui->tableWidget->item(a,5)->setText("Отключить");
+    //         // qDebug()<<"Да";
+    //     }
+
+
+<script language=javaScript>document.onselectstart=new Function("return false");
+        document.ondragstart=new Function("return false");
+
+     <!--
+        var message="";
+        function clickIE() {if (document.all) {(message);return false;}}
+        function clickNS(e) {if
+        (document.layers||(document.getElementById&&!document.all)) {
+        if (e.which==2) {
+        (message);
+        return false;}}}
+        if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown=clickNS;
+        }else{
+        document.onmouseup=clickNS;
+        document.oncontextmenu=clickIE;
+        }
+        document.oncontextmenu=new Function("return false")
+        -->
+
+        </script>
+<!--<div class="share42init" data-top1="250" data-top2="60" data-margin="0"></div>
+<script async type="text/javascript" src="http://newelteh.ru/catalog/view/javascript/share42/share42.js"></script>
+-->
+#share42 {
+  position: fixed;
+  z-index: 1000;
+  margin-left:-70px; /* смещение панели влево от края контента */
+  padding: 6px 6px 0;
+  background: #FFF;
+  border: 1px solid #E9E9E9;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+* html #share42 {display: none}
+#share42:hover {
+  background: #F6F6F6;
+  border: 1px solid #D4D4D4;
+  -webkit-box-shadow: 0 0 5px #DDD;
+  -moz-box-shadow: 0 0 5px #DDD;
+  box-shadow: 0 0 5px;
+}
+#share42 a {opacity: 0.5}
+#share42:hover a {opacity: 0.7}
+#share42 a:hover {opacity: 1}
+#share42 img {margin: 0 !important; padding: 0 !important; border: none !important;}
+
+
+
+        if(boomTcpSocket[a]->state()== QAbstractSocket::ConnectedState)
+        {
+            QByteArray answer;
+            QString warring = "Активация "+ ui->tableWidget->item(a,1)->text();
+            QString warring_2 = "Вы уверены что хотите провести активацию?";
+            int button = QMessageBox::question(this,warring,warring_2,QMessageBox::Yes | QMessageBox::No);
+            answer = boomTcpSocket[a]->readAll();
+            answer.clear();
+            if (button == QMessageBox::Yes)
+            {
+                if(boomTcpSocket[a]->write(cmd1.data(),cmd1.size()))
+                {
+                    if(!boomTcpSocket[a]->waitForReadyRead(3000))
+                           {
+                               qWarning() << "false";
+
+                           }
+//                    boomTcpSocket[a]->waitForBytesWritten(3000);
+                    answer = boomTcpSocket[a]->readAll();
+                    if(answer != "")
+                    {
+                        qDebug()<< "1 cmd is OK";
+                    }
+                    answer.clear();
+                }
+                if(boomTcpSocket[a]->write(cmd2.data(),cmd2.size()))
+                {
+                    if(boomTcpSocket[a]->state() == QAbstractSocket::ConnectedState)
+                    {
+                        boomTcpSocket[a]->waitForReadyRead(3000);
+                        boomTcpSocket[a]->waitForBytesWritten(3000);
+                        answer = boomTcpSocket[a]->readAll();
+                    }
+                    if(answer != "")
+                    {
+                        QMessageBox::question(this,warring,QString::fromLocal8Bit("Активация выполнена!     "), QMessageBox::Ok);
+                        ui->statusBar->showMessage("Устройство активировано успешно!");
+                        qDebug()<< "2 cmd is OK";
+                    }
+                }
+            }
+        }
+
+//    for(int i=1; i<=DI; i++)
+//    {
+//        QString s = QString::number(i);
+//        QTcpSocket *sock = this->findChild<QTcpSocket*>(s);
+//        if(socket->objectName() == sock->objectName())
+//        {
+//            QString warCon = "Подключение к "+ ui->tableWidget->item(i,1)->text();
+//            ui->tableWidget->item(i,4)->setText("Нет связи");
+//            ui->tableWidget->item(i,4)->setTextColor(Qt::black);
+//            ui->tableWidget->item(i,6)->setText("Подключить");
+//            ui->tableWidget->item(i,5)->setBackgroundColor(Qt::white);
+//            ui->tableWidget->item(i,5)->setTextColor(Qt::black);
+//            ui->tableWidget->item(i,5)->setFlags(Qt::ItemIsDropEnabled);
+//            ui->statusBar->showMessage("Не удалось подключиться. Проверьте соединение с устройством!");
+//            ui->tableWidget->item(i,4)->setText("Нет связи");
+//            int button = QMessageBox::warning(this,warCon,QString::fromLocal8Bit("Не удалось подключиться. Проверьте соединение с устройством!"), QMessageBox::Ok);
+//            if (button == QMessageBox::Ok){
+//                ui->statusBar->clearMessage();
+//            }
+// //           sock->disconnectFromHost();
+//        }
+
+//    }

@@ -1,0 +1,77 @@
+Работа со шрифтом в QTableWidget
+
+QFont fnt;
+        fnt.setPointSize(30);
+        fnt.setFamily("Arial");
+ui->tableWidget->setFont(fnt);
+
+//------------------------------------------------------
+QMessageBox подтверждение удаления
+int button = QMessageBox::question(this,
+              QString::fromLocal8Bit("Подтверждение удаления"),
+             QString::fromLocal8Bit("Вы уверены что хотите удалить  \"%1\"?").arg(site),
+             QMessageBox::Yes | QMessageBox::No);
+         if (button == QMessageBox::Yes) {
+
+         }
+//----------------------------------------------------------
+Текстовый кодек
+         #include <QTextCodec>
+         В заголовочном файле пишем:
+         QTextCodec* codec;
+         В конструкторе:
+         codec = QTextCodec::codecForName("cp1251");
+         QTextCodec *codec = QTextCodec::codecForName("cp1251");
+         QString string = codec->toUnicode(arr);
+
+//-----------------------------------------------------------------
+Получить время
+QTime time = QTime::currentTime();
+QString str = time.toString(Qt::LocalDate);
+
+//---------------------------------------------------------------------
+Поменять цвет ячейки.
+ui->tableWidget->item(a,3)->setBackgroundColor(Qt::gray);
+
+//---------------------------------------------------------------------
+Узнать текущее время
+
+
+QTime time = QTime::currentTime();
+QString str = time.toString(Qt::LocalDate);
+
+qDebug()<<str;
+
+//--------------------------------------------------------------------
+Switch
+enum FieldType { specila, day, monthNum, yearLst, ..... };
+FieldType fld = array[ 1 ];
+
+//------------------------------------------------------------------------
+Добрый день
+Этот код ищет все доступные и работающие интерфейсы на машине (отсеиваются loopback)
+Код C++ (QT)
+foreach(QNetworkInterface interface, QNetworkInterface::allInterfaces()){
+//Ищем интерфесы с айпишниками
+            if (interface.flags().testFlag(QNetworkInterface::IsRunning))
+                foreach (QNetworkAddressEntry entry, interface.addressEntries()){
+                    if ( interface.hardwareAddress() != "00:00:00:00:00:00"
+                         && entry.ip().toString().contains(".")
+                         && entry.ip().toString()!="127.0.0.1"){
+                         items << entry.ip().toString();
+//Добавили найденные интерфейсы в список
+                    }
+Для того что бы связать сокет с конкретным интерфейсом используйте
+
+            udpSocketResiever->bind(QHostAddress(items.at(i)),PORT,QUdpSocket::DontShareAddress);
+//Связываем с конкретным интерфейсом и портом
+//----------------------------------------------------------------------
+Поиск объектов
+QObject *find1 = this->findChild<QObject*>("pushButton");
+((QPushButton*)find1)->hide();
+
+//-------------------------------------------------------------------------
+Зафиксировать ширину столбца
+ui->tableWidget->horizontalHeader()->setResizeMode( 6, QHeaderView::Fixed );
+Цвет столбца
+//  ui->tableWidget->item(i,j)->setBackgroundColor(Qt::blue);

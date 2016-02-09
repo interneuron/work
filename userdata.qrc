@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/IMG">
+        <file>images.png</file>
+        <file>Register-icon.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Register-icon.png</file>
+        <file>UserDeviceData.dat</file>
+    </qresource>
+</RCC>
